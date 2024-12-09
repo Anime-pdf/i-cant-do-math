@@ -15,6 +15,12 @@ Perfect for builders, hoarders, and resource managers alike!
 
 ---
 
+## **🎥 Media**
+
+![Showcase](images/icdm.gif)
+
+---
+
 ## **✨ Features**
 
 - **Fast calculations**: Get your storage requirements instantly.
