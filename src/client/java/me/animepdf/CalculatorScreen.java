@@ -93,9 +93,9 @@ public class CalculatorScreen extends CursorScreen {
         context.drawItemWithoutEntity(itemStack, getCursorX(), getCursorY());
 
         //? if <1.21.2 {
-        /*context.drawItemInSlot(textRenderer, itemStack, getCursorX(), getCursorY());
-        *///?} else
-        context.drawStackOverlay(textRenderer, itemStack, getCursorX(), getCursorY());
+        context.drawItemInSlot(textRenderer, itemStack, getCursorX(), getCursorY());
+        //?} else
+        /*context.drawStackOverlay(textRenderer, itemStack, getCursorX(), getCursorY());*/
 
         MoveCursor(20, 0);
         context.drawText(textRenderer, String.valueOf(amount), getCursorX(), getCursorY()+4, 0xFFFFFFFF, true);
