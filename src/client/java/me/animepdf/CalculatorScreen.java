@@ -88,10 +88,15 @@ public class CalculatorScreen extends CursorScreen {
     }
 
     private void drawItemCount(DrawContext context, String item, int amount, int visualAmount) {
-        ItemStack itemStack = Registries.ITEM.get(Identifier.ofVanilla(item)).getDefaultStack();
+        ItemStack itemStack = Registries.ITEM.get(Identifier.of(Identifier.DEFAULT_NAMESPACE, item)).getDefaultStack();
         itemStack.setCount(visualAmount);
         context.drawItemWithoutEntity(itemStack, getCursorX(), getCursorY());
-        context.drawItemInSlot(textRenderer, itemStack, getCursorX(), getCursorY());
+
+        //? if <1.21.2 {
+        /*context.drawItemInSlot(textRenderer, itemStack, getCursorX(), getCursorY());
+        *///?} else
+        context.drawStackOverlay(textRenderer, itemStack, getCursorX(), getCursorY());
+
         MoveCursor(20, 0);
         context.drawText(textRenderer, String.valueOf(amount), getCursorX(), getCursorY()+4, 0xFFFFFFFF, true);
     }
