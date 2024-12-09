@@ -9,4 +9,7 @@ public class Localization {
 
     public static final Text TITLE1 = Text.translatable("icantdomath.label.title1");
     public static final Text TITLE2 = Text.translatable("icantdomath.label.title2");
+
+    public static final Text TOOLTIP_ITEMS = Text.translatable("icantdomath.label.tooltip_items");
+    public static final Text TOOLTIP_STACK = Text.translatable("icantdomath.label.tooltip_stack");
 }

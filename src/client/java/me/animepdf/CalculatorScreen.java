@@ -25,9 +25,11 @@ public class CalculatorScreen extends CursorScreen {
     private final BiConsumer<Integer, Integer> onExitCallback;
 
     private int items;
+    private Pair<Integer, Integer> itemsTooltip;
     private final AtomicBoolean itemsValid;
 
     private int stack;
+    private Pair<Integer, Integer> stackTooltip;
     private final AtomicBoolean stackValid;
 
     public CalculatorScreen(Text title, Screen parent, BiConsumer<Integer, Integer> onExit, Pair<Integer, Integer> data) {
@@ -70,14 +72,15 @@ public class CalculatorScreen extends CursorScreen {
     }
 
     /// Simplify rendering
-    private void drawLabel(Text text) {
+    private TextWidget drawLabel(Text text) {
         var labelWidth = textRenderer.getWidth(text) + 10;
         var itemsLabel = new TextWidget(getCursorX(), getCursorY(), labelWidth, 20, text, textRenderer);
         this.addDrawableChild(itemsLabel);
         itemsLabel.alignCenter();
         MoveCursor(labelWidth, 0);
+        return itemsLabel;
     }
-    private void drawNumberTextBox(String text, Consumer<String> validation, String placeholder) {
+    private NumberTextFieldWidget drawNumberTextBox(String text, Consumer<String> validation, String placeholder) {
         var BoxWidth = textRenderer.getWidth(text) + 8;
         var Box = new NumberTextFieldWidget(textRenderer, getCursorX(), getCursorY(), BoxWidth, 20, Text.literal("input"));
         this.addDrawableChild(Box);
@@ -85,6 +88,7 @@ public class CalculatorScreen extends CursorScreen {
         Box.setPlaceholder(Text.literal(placeholder));
         Box.setChangedListener(validation);
         MoveCursor(BoxWidth, 0);
+        return Box;
     }
 
     private void drawItemCount(DrawContext context, String item, int amount, int visualAmount) {
@@ -153,13 +157,16 @@ public class CalculatorScreen extends CursorScreen {
         SetColumns(3);
         SetCurColumn(0);
 
-        drawNumberTextBox("000000000", s -> this.items = validateInput(s, this.items, true, itemsValid), String.valueOf(this.items));
+        var itemsWidget = drawNumberTextBox("000000000", s -> this.items = validateInput(s, this.items, true, itemsValid), String.valueOf(this.items));
         drawLabel(TITLE1);
-        drawNumberTextBox("000", s -> this.stack = validateInput(s, this.stack, false, stackValid), String.valueOf(this.stack));
+        var stackWidget = drawNumberTextBox("000", s -> this.stack = validateInput(s, this.stack, false, stackValid), String.valueOf(this.stack));
         drawLabel(TITLE2);
         NextLine();
         NextLine();
         UpdateOrigin();
+
+        itemsTooltip = new Pair<>(itemsWidget.getX(), itemsWidget.getY());
+        stackTooltip = new Pair<>(stackWidget.getX(), stackWidget.getY());
     }
 
     @Override
@@ -170,11 +177,11 @@ public class CalculatorScreen extends CursorScreen {
 
         if(!itemsValid.get())
         {
-            context.drawTooltip(textRenderer, Text.literal("Items amount must be 0+"), 35, 40);
+            context.drawTooltip(textRenderer, TOOLTIP_ITEMS, itemsTooltip.getLeft(), itemsTooltip.getRight() - 5);
         }
         if(!stackValid.get())
         {
-            context.drawTooltip(textRenderer, Text.literal("Stack size must be 1+"), 200, 40);
+            context.drawTooltip(textRenderer, TOOLTIP_STACK, stackTooltip.getLeft(), stackTooltip.getRight() - 5);
         }
 
         renderShulkers(context);
