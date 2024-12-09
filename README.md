@@ -6,7 +6,7 @@ _A lightweight Minecraft Fabric mod for versions 1.20.x and 1.21.x_
 
 ## **📜 Description**
 
-Ever wondered how much storage you need for a massive build or resource stockpile? The **Shulker Storage Calculator** has you covered! Enter the total amount of items and their stack size, and this handy tool calculates:
+Ever wondered how much storage you need for a massive build or resource stockpile? The **I Can't Do Math!** has you covered! Enter the total amount of items and their stack size, and this handy tool calculates:
 - **Shulkers + stacks + items**
 - **Double chests + stacks + items**
 - **Stacks + items**
