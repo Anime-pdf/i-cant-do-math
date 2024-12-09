@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "icantdomath",
+	"version": "${version}",
+	"name": "I Can't do math!",
+	"description": "Calculate resources in shulkers, double chests and stacks",
+	"authors": [
+		"Animepdf"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"issues": "https://github.com/Anime-pdf/i-cant-do-math/issues",
+		"sources": "https://github.com/Anime-pdf/i-cant-do-math",
+		"discord": "https://discord.com/invite/VV4Zdcb4AU"
+	},
+	"license": "MIT",
+	"icon": "assets/icantdomath/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"me.animepdf.ICantDoMathMod"
+		],
+		"client": [
+			"me.animepdf.ICantDoMathModClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
