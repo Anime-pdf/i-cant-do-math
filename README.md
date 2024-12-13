@@ -1,6 +1,6 @@
 # **I Can't Do Math!**
 
-[![Download on Modrinth](https://img.shields.io/badge/Modrinth-Download-green?style=for-the-badge&logo=modrinth)](https://modrinth.com/mod/i-cant-do-math!) [![Download on CurseForge](https://img.shields.io/badge/CurseForge-Download-orange?style=for-the-badge&logo=curseforge)](https://curseforge.com/) [![View on GitHub](https://img.shields.io/badge/GitHub-View-blue?style=for-the-badge&logo=github)](https://github.com/Anime-pdf/i-cant-do-math)
+[![Download on Modrinth](https://img.shields.io/badge/Modrinth-Download-green?style=for-the-badge&logo=modrinth)](https://modrinth.com/mod/i-cant-do-math!) [![Download on CurseForge](https://img.shields.io/badge/CurseForge-Download-orange?style=for-the-badge&logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/i-cant-do-math) [![View on GitHub](https://img.shields.io/badge/GitHub-View-blue?style=for-the-badge&logo=github)](https://github.com/Anime-pdf/i-cant-do-math)
 
 _A lightweight Minecraft Fabric mod for versions 1.20.x and 1.21.x_
 
