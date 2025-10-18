@@ -73,11 +73,14 @@ public class CalculatorScreen extends CursorScreen {
 
     /// Simplify rendering
     private TextWidget drawLabel(Text text) {
-        var labelWidth = textRenderer.getWidth(text) + 10;
-        var itemsLabel = new TextWidget(getCursorX(), getCursorY(), labelWidth, 20, text, textRenderer);
+        var labelWidth = textRenderer.getWidth(text);
+        int alignedX = getCursorX() + 5;
+        var itemsLabel = new TextWidget(alignedX, getCursorY(), labelWidth + 10, 20, text, textRenderer);
+        //? if <1.21.9 {
+        /*itemsLabel.alignLeft();
+        *///?}
         this.addDrawableChild(itemsLabel);
-        itemsLabel.alignCenter();
-        MoveCursor(labelWidth, 0);
+        MoveCursor(labelWidth + 10, 0);
         return itemsLabel;
     }
     private NumberTextFieldWidget drawNumberTextBox(String text, Consumer<String> validation, String placeholder) {
@@ -97,9 +100,9 @@ public class CalculatorScreen extends CursorScreen {
         context.drawItemWithoutEntity(itemStack, getCursorX(), getCursorY());
 
         //? if <1.21.2 {
-        context.drawItemInSlot(textRenderer, itemStack, getCursorX(), getCursorY());
-        //?} else
-        /*context.drawStackOverlay(textRenderer, itemStack, getCursorX(), getCursorY());*/
+        /*context.drawItemInSlot(textRenderer, itemStack, getCursorX(), getCursorY());
+        *///?} else
+        context.drawStackOverlay(textRenderer, itemStack, getCursorX(), getCursorY());
 
         MoveCursor(20, 0);
         context.drawText(textRenderer, String.valueOf(amount), getCursorX(), getCursorY()+4, 0xFFFFFFFF, true);
