@@ -28,4 +28,4 @@ jobs:
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
       - name: build
-        run: ./gradlew chiseledBuild
+        run: ./gradlew build
